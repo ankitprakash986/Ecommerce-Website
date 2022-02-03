@@ -10,6 +10,10 @@ import {products} from './models/products';
 import { ProductSearchController } from './controllers/product-search/product-search.controller';
 import { CheckJwtMiddleware } from './Middleware/check-jwt.middleware';
 import { AccountController } from './controllers/account/account.controller';
+import { AccountService } from './controllers/account/account.service';
+import { AuthService } from './controllers/auth/auth.service';
+import { MainService } from './controllers/main/main.service';
+import { ProductSearchService } from './controllers/product-search/product-search.service';
 
 @Module({
   imports: [
@@ -27,7 +31,7 @@ import { AccountController } from './controllers/account/account.controller';
     TypeOrmModule.forFeature([products]),
   ],
   controllers: [AppController, MainController,AuthController,ProductSearchController,AccountController],
-  providers: [AppService],
+  providers: [AppService,AccountService,AuthService,MainService,ProductSearchService],
 })
 export class AppModule {
 
